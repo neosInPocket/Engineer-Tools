@@ -1,0 +1,85 @@
+*, *::after, *::before {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+:root {
+    --clr-primary-path-before: hsla(0, 0%, 60%);
+    --clr-primary-path-after: hsla(0, 0%, 40%);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    margin: 0;
+
+}
+
+
+.header {
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.navigation {
+    position: absolute;
+    display: grid;
+    width: 105px;
+    height: 105px;
+    grid-template: 50px 50px / 50px 50px;
+    grid-gap: 5px;
+    font-family: 'Courgette', cursive;
+    transform: translateY(50%);
+}
+
+.navi {
+    transition: transform 500ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.path {
+    transition-duration: 500ms;
+    transition-property: fill, opacity;
+    fill: var(--clr-primary-path-before);
+    cursor: pointer;
+}
+
+.icon-graph-generator {
+    user-select: none;
+    pointer-events: none;
+}
+
+.icon {
+    transition-duration: 500ms;
+}
+
+
+.navi-top-left {
+    transform-origin: bottom right;
+}
+
+.navi-top-right {
+    transform-origin: bottom left;
+}
+
+.navi-bottom-left {
+    transform-origin: top right;
+}
+
+.navi-bottom-right {
+    transform-origin: top left;
+}
+
+
+
+
+
+

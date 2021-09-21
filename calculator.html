@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numpad Calculator</title>
+    <link rel="stylesheet" href="styles/calculator-styles.css">
+    <script src="apps/calculator-app.js" defer />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          displayAlign: "left",
+          config: ["MMLorHTML.js"],
+          jax: ["input/TeX","input/MathML","input/AsciiMath","output/HTML-CSS","output/NativeMML", "output/PreviewHTML"],
+          extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+          TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+          }
+           "HTML-CSS" : {
+            availableFonts : ["STIX"],
+            preferredFont : "STIX",
+            webFont : "STIX-Web",
+            imageFont : null,
+            linebreaks: { automatic: true, width: "container" }
+
+          }
+        });
+</script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <section class="utility-window-section">utility</section>
+    <section class="canvas-section">canvas</section>
+    <section class="navigation-section">navi</section>
+    <section class="info-section">info</section>
+    <section class="numpad-section">
+            <div class="output">$$ \dashuline{dashing} $$</div>
+        <div class="numpad-grid">
+            <div data-function class="key NaN">$$ sin(x) $$</div>
+            <div data-function class="key NaN">$$ cos(x) $$</div>
+            <div data-function class="key NaN">$$\mid x\mid $$</div>
+            <div data-right-arrow class="key edit">$$ \rightarrow $$</div>
+            <div data-left-arrow class="key edit">$$ \leftarrow $$</div>
+            <div data-delete class="key edit">$$ DEL $$</div>
+            <div data-all-clear class="key edit large">$$ AC $$ </div>
+            <div data-function class="key NaN">$$ asin(x) $$</div>
+            <div data-function class="key NaN">$$ acos(x) $$</div>
+            <div data-open-bracket class="key NaN">$$ ( $$</div>
+            <div data-close-bracket class="key NaN">$$ ) $$</div>
+            <div data-number class="key number">$$ 7 $$</div>
+            <div data-number class="key number">$$ 8 $$</div>
+            <div data-number class="key number">$$ 9 $$</div>
+            <div data-operation class="key NaN">$$ ÷ $$</div>
+            <div data-function class="key NaN">$$ tg(x) $$</div>
+            <div data-function class="key NaN">$$ ctg(x) $$</div>
+            <div data-function class="key NaN">$$ x^2 $$</div>
+            <div data-function class="key NaN">$$ \sqrt{x} $$</div>
+            <div data-number class="key number">$$ 4 $$</div>
+            <div data-number class="key number asd">$$ 5 $$</div>
+            <div data-number class="key number">$$ 6 $$</div>
+            <div data-operation class="key NaN">$$ * $$</div>
+            <div data-function class="key NaN">$$ atg(x) $$</div>
+            <div data-function class="key NaN">$$ actg(x) $$</div>
+            <div data-number class="key NaN">$$ e $$</div>
+            <div data-number class="key NaN">$$ \pi $$</div>
+            <div data-number class="key number">$$ 1 $$</div>
+            <div data-number class="key number">$$ 2 $$</div>
+            <div data-number class="key number">$$ 3 $$</div>
+            <div data-operation class="key NaN">$$ - $$</div>
+            <div class="key NaN">$$$$</div>
+            <div class="key NaN">$$$$</div>
+            <div data-function class="key NaN">$$ ! $$</div>
+            <div class="key NaN">$$ % $$</div>
+            <div data-number class="key number">$$ 0 $$</div>
+            <div data-number class="key number">$$ . $$</div>
+            <div data-equals class="key NaN">$$ = $$</div>
+            <div data-operation class="key NaN">$$ + $$</div>
+        </div>
+
+    </section>
+    <footer>footer</footer>
+</body>
+</html>

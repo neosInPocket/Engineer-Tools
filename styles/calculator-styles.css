@@ -1,0 +1,228 @@
+
+
+mjx-container.MathJax {
+    pointer-events: none;
+
+}
+
+
+math, .MathJax {
+    color: rgba(0, 0, 0, .85);
+    text-align: right;
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    user-select: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+:root {
+    /* root */
+    --window-width: 1920;
+    --window-height: 1080;
+    /* section sizes */
+    --utility-window-width: 200;
+    --canvas-width: 1300;
+    --canvas-height: 680;
+    --navigation-width: 420;
+    --info-width: 500;
+    --numpad-width: 800;
+    --numpad-height: 340;
+    --footer-height: 60;
+    /* numpad-section */
+    --numpad-grid-height: 240;
+    --num-width: 100;
+    --num-height: 60;
+    --output-height: 100;
+    /* clrs */
+    --clr-primary-numpad-NaN: hsl(0, 0%, 86%);
+    --clr-primary-numpad-NaN-active: hsl(0, 0%, 63%);
+    --clr-primary-numpad-edit: hsl(0, 0%, 92%);
+    --clr-primary-numpad-edit-active: hsl(0, 0%, 92%);
+    --clr-primary-numpad-number: hsl(0, 0%, 100%);
+    --clr-primary-numpad-number-active: hsl(0, 0%, 77%);
+    --clr-primary-output: hsl(0, 0%, 75%);
+    --clr-primary-output-scrollbar-thumb: hsl(0, 0%, 42%);
+    --clr-primary-output-scrollbar-thumb-hover: hsl(0, 0%, 0%)
+}
+
+body {
+    display: grid;
+    grid-template: calc(100% / 1080 * var(--canvas-height))
+                   calc(100% / 1080 * var(--numpad-height))
+                   calc(100% / 1080 * var(--footer-height))
+                        /
+                   calc(100% / 1920 * var(--utility-window-width))
+                   calc(100% / 1920 * var(--info-width))
+                   calc(100% / 1920 * var(--numpad-width))
+                   calc(100% / 1920 * var(--navigation-width));
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+section {
+    border: 1px solid black;
+    background: grey;
+}
+
+.utility-window-section {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+.canvas-section {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+}
+
+.navigation-section {
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+}
+
+.info-section {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.numpad-section {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    background: transparent;
+}
+
+.output {
+    height: calc(100% / var(--numpad-height) * var(--output-height));
+    width: 100%;
+    background: var(--clr-primary-output);
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    font-size: 4vh;
+    overflow-x: auto;
+    z-index: 5;
+}
+
+.output::-webkit-scrollbar {
+    height: 5px;
+}
+
+.output::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: var(--clr-primary-numpad-edit);
+}
+
+.output::-webkit-scrollbar-thumb {
+    height: 10px;
+    background: var(--clr-primary-output-scrollbar-thumb);
+    border-radius: 5px;
+    transition-duration: 85ms;
+}
+
+.output::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-primary-output-scrollbar-thumb-hover);
+}
+
+.output::-webkit-scrollbar-thumb:active {
+    background: var(--clr-primary-output-scrollbar-thumb);
+}
+
+.output mjx-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+    text-align: left !important;
+    margin: 1em 0.25em !important;
+}
+
+
+.numpad-grid {
+    height: calc(100% / var(--numpad-height) * var(--numpad-grid-height));
+    width: 100%;
+    display: grid;
+    grid-template: repeat(5, minmax(0, 1fr))
+                     /
+                   repeat(8, minmax(0, 1fr));
+    grid-gap: 1px;
+    background: transparent;
+    font-size: 1.15em;
+    position: relative;
+}
+
+footer {
+    grid-column: 1 / -1;
+    border: 1px solid black;
+    background: grey;
+    bottom: 0;
+}
+
+.large {
+    grid-column: span 2;
+}
+
+.number {
+    background: var(--clr-primary-numpad-number);
+}
+
+.NaN {
+    background: var(--clr-primary-numpad-NaN);
+}
+
+.key {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-radius: 7%;
+    cursor: pointer;
+    transition-duration: 85ms;
+}
+
+
+.number {
+    box-shadow: 0 0 0 1px var(--clr-primary-numpad-NaN);
+}
+
+.number:hover {
+    background: var(--clr-primary-numpad-NaN);
+    box-shadow: 0 0 0 1px var(--clr-primary-numpad-number);
+}
+
+.number:active {
+    background: var(--clr-primary-numpad-number-active);
+}
+
+.NaN:hover {
+    background: var(--clr-primary-numpad-number);
+    box-shadow: 0 0 0 1px var(--clr-primary-numpad-NaN);
+}
+
+.NaN:active {
+    background: var(--clr-primary-numpad-NaN-active);
+}
+
+.edit {
+    background: var(--clr-primary-numpad-edit);
+}
+
+.edit:hover {
+    background: var(--clr-primary-numpad-number);
+}
+
+.edit:active {
+    background: var(--clr-primary-numpad-edit-active)
+}
+
+
+
+
+
+
